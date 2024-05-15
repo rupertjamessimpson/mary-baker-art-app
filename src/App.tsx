@@ -1,25 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
+import {Routes, Route, BrowserRouter} from "react-router-dom";
+import Title from './general/title';
+import Nav from './general/Nav';
+import Painting from "./components/painting";
+import Photography from './components/photography';
+import Digital from './components/digital';
+import Charcoal from './components/charcoal';
+import Mary from './components/mary';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Title />
+      <Nav />
+      <Routes>
+        <Route path="/painting" element={<Painting />} />
+        <Route path="/photography" element={<Photography />} />
+        <Route path="/digital" element={<Digital />} />
+        <Route path="/charcoal" element={<Charcoal />} />
+        <Route path="/mary" element={<Mary />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
